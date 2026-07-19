@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Footprint Risk Assessment</title>
+
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Digital Footprint Risk Assessment</h1>
+
+       <nav>
+            
+            <a href="{% url 'home_page' %}">Home</a>
+
+            
+            <a href="{% url 'information_centre_page' %}">
+                Information Centre
+            </a>
+
+            <a href="#">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Understand your online risk</h2>
+
+            <p>
+                This website helps users assess the possible security risks
+                connected to their email address or username.
+            </p>
+
+            <button>Create an Account to Start</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Thomas Barker Production Project</p>
+    </footer>
+
+</body>
+</html>
