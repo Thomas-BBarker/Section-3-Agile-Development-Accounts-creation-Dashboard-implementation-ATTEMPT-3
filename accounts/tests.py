@@ -14,6 +14,11 @@ class AccountAuthenticationTests(TestCase):
         self.assertEqual(reverse("home:home"), "/")
         self.assertEqual(reverse("home:information-centre"), "/information-centre/")
 
+    def test_information_centre_page_renders(self):
+        response = self.client.get(reverse("home:information-centre"))
+
+        self.assertEqual(response.status_code, 200)
+
     def test_user_can_register_and_reach_dashboard(self):
         response = self.client.post(
             reverse("accounts:register"),
