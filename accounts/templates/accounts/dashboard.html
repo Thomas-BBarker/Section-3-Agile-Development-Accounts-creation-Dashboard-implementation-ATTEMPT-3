@@ -1,14 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Risk Dashboard</title>
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
 </head>
 
 <body>
@@ -16,77 +13,53 @@
         <h1>Digital Footprint Dashboard</h1>
 
         <nav>
-            <a href="{% url 'home:home' %}">
-                Home
-            </a>
+            <a href="{% url 'home:home' %}">Home</a>
+            <a href="{% url 'home:information-centre' %}">Information Centre</a>
 
-            <a href="{% url 'home:information-centre' %}">
-                Information Centre
-            </a>
-
-            <form
-                method="post"
-                action="{% url 'accounts:logout' %}"
-                style="display: inline;"
-            >
+            <form method="post" action="{% url 'accounts:logout' %}" class="logout-form">
                 {% csrf_token %}
-
-                <button type="submit">
-                    Log out
-                </button>
+                <button type="submit">Log out</button>
             </form>
         </nav>
     </header>
 
     <main>
-        <section>
-            <h2>
-                Welcome, {{ user.username }}
-            </h2>
+        <div class="dashboard-layout">
+            <section class="dashboard-card">
+                <h2>Welcome, {{ user.username }}</h2>
+                <p>
+                    Use this dashboard to assess and monitor the risks
+                    associated with your digital footprint.
+                </p>
+            </section>
 
-            <p>
-                Use this dashboard to assess and monitor the risks
-                associated with your digital footprint.
-            </p>
-        </section>
+            <section class="dashboard-card">
+                <h2>Current Risk Score</h2>
+                <p>No risk assessment has been completed yet.</p>
+            </section>
 
-        <section>
-            <h2>Current Risk Score</h2>
+            <section class="dashboard-card">
+                <h2>Start an Assessment</h2>
+                <p>
+                    Submit an email address or username to begin a digital
+                    footprint risk assessment.
+                </p>
+                <button type="button">Start assessment</button>
+            </section>
 
-            <p>
-                No risk assessment has been completed yet.
-            </p>
-        </section>
+            <section class="dashboard-card">
+                <h2>Previous Assessments</h2>
+                <p>Your previous assessment results will appear here.</p>
+            </section>
 
-        <section>
-            <h2>Start an Assessment</h2>
-
-            <p>
-                Submit an email address or username to begin a digital
-                footprint risk assessment.
-            </p>
-
-            <button type="button">
-                Start assessment
-            </button>
-        </section>
-
-        <section>
-            <h2>Previous Assessments</h2>
-
-            <p>
-                Your previous assessment results will appear here.
-            </p>
-        </section>
-
-        <section>
-            <h2>Security Recommendations</h2>
-
-            <p>
-                Personalised recommendations will appear after an
-                assessment has been completed.
-            </p>
-        </section>
+            <section class="dashboard-card">
+                <h2>Security Recommendations</h2>
+                <p>
+                    Personalised recommendations will appear after an
+                    assessment has been completed.
+                </p>
+            </section>
+        </div>
     </main>
 </body>
 </html>
